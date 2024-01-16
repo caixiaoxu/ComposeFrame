@@ -18,8 +18,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.lsy.base.theme.ComposeWidgetTheme
-import com.lsy.base.theme.PrimaryColor
+import com.lsy.composewidget.ui.theme.ComposeWidgetTheme
+import com.lsy.composewidget.ui.theme.PrimaryColor
 import com.lsy.news.headlinenews.HeadlineNewsComposable
 import com.lsy.news.headlinenews.HeadlineNewsComposableModel
 

@@ -7,7 +7,15 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.lsy.base.theme.*
+import com.lsy.composewidget.ui.theme.DisableTxtColor
+import com.lsy.composewidget.ui.theme.PrimaryColor
+import com.lsy.composewidget.ui.theme.PrimaryColor500
+import com.lsy.composewidget.ui.theme.PrimaryPressColor
+import com.lsy.composewidget.ui.theme.PrimaryTxtColor
+import com.lsy.composewidget.ui.theme.WarningColor
+import com.lsy.composewidget.ui.theme.WarningColor500
+import com.lsy.composewidget.ui.theme.WarningPressColor
+import com.lsy.composewidget.ui.theme.WarningPressColor500
 import com.lsy.composewidget.widget.WidgetSpec
 
 /**

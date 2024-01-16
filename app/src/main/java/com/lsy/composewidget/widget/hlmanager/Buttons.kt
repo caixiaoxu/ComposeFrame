@@ -12,7 +12,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.lsy.base.theme.DisableTxtColor
+import com.lsy.composewidget.ui.theme.DisableTxtColor
 import com.lsy.composewidget.widget.WidgetSpec
 import com.lsy.composewidget.widget.WidgetState
 

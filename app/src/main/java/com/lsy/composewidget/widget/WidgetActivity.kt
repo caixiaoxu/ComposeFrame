@@ -14,9 +14,9 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.lsy.base.theme.ComposeWidgetTheme
-import com.lsy.base.theme.PrimaryColor
-import com.lsy.base.theme.PrimaryColor500
+import com.lsy.composewidget.ui.theme.ComposeWidgetTheme
+import com.lsy.composewidget.ui.theme.PrimaryColor
+import com.lsy.composewidget.ui.theme.PrimaryColor500
 import com.lsy.composewidget.widget.hlmanager.*
 
 /**

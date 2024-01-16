@@ -1,4 +1,4 @@
-package com.lsy.base.theme
+package com.lsy.composewidget.ui.theme
 
 import android.app.Activity
 import android.os.Build
@@ -12,15 +12,15 @@ import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
 
 private val DarkColorScheme = darkColorScheme(
-    primary = PrimaryColor,
-    secondary = SecondPrimary,
-    tertiary = PrimaryColor500
+    primary = com.lsy.composewidget.ui.theme.PrimaryColor,
+    secondary = com.lsy.composewidget.ui.theme.SecondPrimary,
+    tertiary = com.lsy.composewidget.ui.theme.PrimaryColor500
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = PrimaryColor,
-    secondary = SecondPrimary,
-    tertiary = PrimaryColor500,
+    primary = com.lsy.composewidget.ui.theme.PrimaryColor,
+    secondary = com.lsy.composewidget.ui.theme.SecondPrimary,
+    tertiary = com.lsy.composewidget.ui.theme.PrimaryColor500,
 
     /* Other default colors to override
     background = Color(0xFFFFFBFE),
