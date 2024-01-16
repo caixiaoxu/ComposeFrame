@@ -1,4 +1,4 @@
-package com.lsy.composewidget.ui.theme
+package com.lsy.base.theme
 
 import androidx.compose.ui.graphics.Color
 

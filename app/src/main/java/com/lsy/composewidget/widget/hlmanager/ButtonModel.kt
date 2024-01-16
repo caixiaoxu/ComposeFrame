@@ -7,7 +7,7 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.lsy.composewidget.ui.theme.*
+import com.lsy.base.theme.*
 import com.lsy.composewidget.widget.WidgetSpec
 
 /**

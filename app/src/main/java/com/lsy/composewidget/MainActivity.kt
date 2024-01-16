@@ -3,213 +3,87 @@ package com.lsy.composewidget
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.*
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
+import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.*
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
-import com.lsy.composewidget.ui.theme.ComposeWidgetTheme
-import com.lsy.composewidget.ui.theme.PrimaryColor
-import com.lsy.composewidget.ui.theme.PrimaryColor500
-import com.lsy.composewidget.widget.WidgetSpec
-import com.lsy.composewidget.widget.WidgetState
-import com.lsy.composewidget.widget.hlmanager.*
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.sp
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelStoreOwner
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.lsy.base.theme.ComposeWidgetTheme
+import com.lsy.base.theme.PrimaryColor
+import com.lsy.news.headlinenews.HeadlineNewsComposable
+import com.lsy.news.headlinenews.HeadlineNewsComposableModel
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             ComposeWidgetTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    var state by remember {
-                        mutableStateOf<WidgetState>(WidgetState.InitState("加载中"))
-                    }
-                    Column(
-                        modifier = Modifier.fillMaxSize(),
-                        verticalArrangement = Arrangement.SpaceEvenly,
-                    ) {
-                        Row(
-                            modifier = Modifier.fillMaxWidth(),
-                            horizontalArrangement = Arrangement.SpaceEvenly,
-                            verticalAlignment = Alignment.CenterVertically
-                        ) {
-                            Column(
-                                horizontalAlignment = Alignment.CenterHorizontally,
-                                verticalArrangement = Arrangement.Center
-                            ) {
-                                PrimaryButton(
-                                    "移动端大按钮",
-                                    buttonSpec = WidgetSpec.Large,
-                                    buttonState = state
-                                ) {
-                                    state = when (state) {
-                                        is WidgetState.InitState -> WidgetState.EnableState
-                                        is WidgetState.EnableState -> WidgetState.DisableState
-                                        else -> WidgetState.InitState()
-                                    }
-                                }
-                                PrimaryButton(
-                                    "移动端中按钮",
-                                    buttonSpec = WidgetSpec.Medium,
-                                    buttonState = state
-                                ) {
-                                    state = when (state) {
-                                        is WidgetState.InitState -> WidgetState.EnableState
-                                        is WidgetState.EnableState -> WidgetState.DisableState
-                                        else -> WidgetState.InitState()
-                                    }
-                                }
-                                PrimaryButton(
-                                    "小按钮",
-                                    buttonSpec = WidgetSpec.Small,
-                                    buttonState = state
-                                ) {
-                                    state = when (state) {
-                                        is WidgetState.InitState -> WidgetState.EnableState
-                                        is WidgetState.EnableState -> WidgetState.DisableState
-                                        else -> WidgetState.InitState()
-                                    }
-                                }
-                            }
-                            Spacer(modifier = Modifier.width(10.dp))
-                            Column(
-                                horizontalAlignment = Alignment.CenterHorizontally,
-                                verticalArrangement = Arrangement.Center
-                            ) {
-                                WarningButton(
-                                    "移动端大按钮",
-                                    buttonSpec = WidgetSpec.Large,
-                                    buttonState = state
-                                ) {
-                                    state = when (state) {
-                                        is WidgetState.InitState -> WidgetState.EnableState
-                                        is WidgetState.EnableState -> WidgetState.DisableState
-                                        else -> WidgetState.InitState()
-                                    }
-                                }
-                                WarningButton(
-                                    "移动端中按钮",
-                                    buttonSpec = WidgetSpec.Medium,
-                                    buttonState = state,
-                                    iconId = R.mipmap.icon_add,
-                                ) {
-                                    state = when (state) {
-                                        is WidgetState.InitState -> WidgetState.EnableState
-                                        is WidgetState.EnableState -> WidgetState.DisableState
-                                        else -> WidgetState.InitState()
-                                    }
-                                }
-                                WarningButton(
-                                    "小按钮",
-                                    buttonSpec = WidgetSpec.Small,
-                                    buttonState = state
-                                ) {
-                                    state = when (state) {
-                                        is WidgetState.InitState -> WidgetState.EnableState
-                                        is WidgetState.EnableState -> WidgetState.DisableState
-                                        else -> WidgetState.InitState()
-                                    }
-                                }
-                            }
-                        }
-
-                        Row(
-                            modifier = Modifier.fillMaxWidth(),
-                            horizontalArrangement = Arrangement.SpaceEvenly,
-                            verticalAlignment = Alignment.CenterVertically
-                        ) {
-                            Column(
-                                horizontalAlignment = Alignment.CenterHorizontally,
-                                verticalArrangement = Arrangement.Center
-                            ) {
-                                MinorButton(
-                                    "移动端大按钮",
-                                    buttonSpec = WidgetSpec.Large,
-                                    buttonState = state
-                                ) {
-                                    state = when (state) {
-                                        is WidgetState.InitState -> WidgetState.EnableState
-                                        is WidgetState.EnableState -> WidgetState.DisableState
-                                        else -> WidgetState.InitState()
-                                    }
-                                }
-                                MinorButton(
-                                    "移动端中按钮",
-                                    buttonSpec = WidgetSpec.Medium,
-                                    buttonState = state
-                                ) {
-                                    state = when (state) {
-                                        is WidgetState.InitState -> WidgetState.EnableState
-                                        is WidgetState.EnableState -> WidgetState.DisableState
-                                        else -> WidgetState.InitState()
-                                    }
-                                }
-                                MinorButton(
-                                    "小按钮",
-                                    buttonSpec = WidgetSpec.Small,
-                                    buttonState = state
-                                ) {
-                                    state = when (state) {
-                                        is WidgetState.InitState -> WidgetState.EnableState
-                                        is WidgetState.EnableState -> WidgetState.DisableState
-                                        else -> WidgetState.InitState()
-                                    }
-                                }
-                            }
-                            Column(
-                                horizontalAlignment = Alignment.CenterHorizontally,
-                                verticalArrangement = Arrangement.Center
-                            ) {
-                                CustomTextButton(
-                                    "移动端大按钮",
-                                    buttonSpec = WidgetSpec.Large,
-                                    buttonState = state,
-                                    buttonColors = ButtonModel.textColorButton(
-                                        buttonTxtColors = ButtonTxtColors(
-                                            PrimaryColor, PrimaryColor500,
-                                            PrimaryColor
-                                        )
-                                    )
-
-                                ) {
-                                    state = when (state) {
-                                        is WidgetState.InitState -> WidgetState.EnableState
-                                        is WidgetState.EnableState -> WidgetState.DisableState
-                                        else -> WidgetState.InitState()
-                                    }
-                                }
-                                CustomTextButton(
-                                    "移动端中按钮",
-                                    buttonSpec = WidgetSpec.Medium,
-                                    buttonState = state,
-                                    buttonColors = ButtonModel.textColorButton(
-                                        buttonTxtColors = ButtonTxtColors(
-                                            PrimaryColor, PrimaryColor500,
-                                            PrimaryColor
-                                        )
-                                    )
-                                ) {
-                                    state = when (state) {
-                                        is WidgetState.InitState -> WidgetState.EnableState
-                                        is WidgetState.EnableState -> WidgetState.DisableState
-                                        else -> WidgetState.InitState()
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-                }
+                MainScreen()
             }
+        }
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun MainScreen() {
+    val navController = rememberNavController()
+    Scaffold(
+        topBar = { TopBar() },
+        bottomBar = { BottomBar(navController) }
+    ) { innerPadding ->
+        Box(
+            modifier = Modifier.padding(innerPadding),
+        ) {
+            Navigation(navController)
+        }
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun TopBar() {
+    TopAppBar(
+        title = { Text(text = stringResource(id = R.string.app_name), fontSize = 18.sp) },
+        colors = TopAppBarDefaults.topAppBarColors(
+            containerColor = PrimaryColor,
+            titleContentColor = Color.White
+        )
+    )
+}
+
+@Composable
+fun BottomBar(navController: NavHostController) {
+
+}
+
+@OptIn(ExperimentalAnimationApi::class)
+@Composable
+fun Navigation(navController: NavHostController) {
+    NavHost(navController = navController, startDestination = NavigationItem.Home.route) {
+        composable(NavigationItem.Home.route) {
+            val headlineNewsViewModel: HeadlineNewsComposableModel =
+                ViewModelProvider(navController.context as ViewModelStoreOwner)[HeadlineNewsComposableModel::class.java]
+            HeadlineNewsComposable(headlineNewsViewModel)
+        }
+        composable(NavigationItem.Movies.route) {
+            MoviesScreen()
+        }
+        composable(NavigationItem.Books.route) {
+            BooksScreen()
+        }
+        composable(NavigationItem.Profile.route) {
+            ProfileScreen()
         }
     }
 }
